@@ -1,4 +1,4 @@
-export default function HabitsPage(){
+export default function HabitItem(){
   return (
     <div>
       
