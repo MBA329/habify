@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-
+import { cookies } from "next/headers";
 import { SidebarProvider,SidebarTrigger } from "@/components/ui/sidebar";
 import {AppSidebar} from "@/components/app-sidebar";
 
@@ -21,21 +21,24 @@ export const metadata: Metadata = {
   description: "Track your habits effortlessly with Habify.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
   return (
     <SidebarProvider>
-      <AppSidebar/>
+      <AppSidebar />
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-
+          <SidebarTrigger />
           <div className="min-w-screen h-10"></div>
-          <SidebarTrigger/>
+
           {children}
         </body>
       </html>
