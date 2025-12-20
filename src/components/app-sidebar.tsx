@@ -27,7 +27,7 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuButton className="borde p-3">
+                <SidebarMenuButton className="borde p-5 bg-gray-200">
                   <div className="bg-orange-600 rounded-full size-4 p-3 flex justify-center items-center">
                     <span className="text-white">E</span>
                      
@@ -48,7 +48,7 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        
+
       </SidebarContent>
     </Sidebar>
   );
