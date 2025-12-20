@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Calendar, Home, Inbox, Search, Settings,ChevronDown } from "lucide-react";
 
 import {
   Sidebar,
@@ -6,71 +6,49 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  
 } from "@/components/ui/sidebar";
 
+import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 const items = [
-  {
-    title: "All Habits",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "types",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "good ones",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "bad ones",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "terrible ones",
-    url: "#",
-    icon: Settings,
-  },
-];
+  {},{},{}
+]
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar side="left">
+      <SidebarHeader className="">
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton className="borde p-3">
+                  <div className="bg-orange-600 rounded-full size-4 p-3 flex justify-center items-center">
+                    <span className="text-white">E</span>
+                     
+                  </div>
+                  Emmauel Mba
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[--radix-popper-anchor-width]">
+                <DropdownMenuItem className="hover:bg-blue-800 cursor-pointer">
+                  <span className="">Profile</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-blue-800 cursor-pointer">
+                  <span>Sign Out</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        {/* <SidebarGroup>
-          <SidebarGroupLabel>
-            garri
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup> */}
+        
       </SidebarContent>
     </Sidebar>
   );
