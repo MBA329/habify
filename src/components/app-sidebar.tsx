@@ -1,5 +1,5 @@
-import { Calendar, Home, Inbox, Search, Settings,ChevronDown } from "lucide-react";
-
+import { Calendar, Home, Inbox, Search, Settings,ChevronDown,ListCollapseIcon } from "lucide-react";
+import AddHabitButton from "./add-habit";
 import {
   Sidebar,
   SidebarContent,
@@ -13,6 +13,8 @@ import {
   
 } from "@/components/ui/sidebar";
 
+import Link from "next/link";
+
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 const items = [
@@ -20,6 +22,8 @@ const items = [
 ]
 
 export function AppSidebar() {
+
+ 
   return (
     <Sidebar side="left">
       <SidebarHeader className="">
@@ -30,7 +34,6 @@ export function AppSidebar() {
                 <SidebarMenuButton className="borde p-5 bg-gray-200">
                   <div className="bg-orange-600 rounded-full size-4 p-3 flex justify-center items-center">
                     <span className="text-white">E</span>
-                     
                   </div>
                   Emmauel Mba
                 </SidebarMenuButton>
@@ -48,7 +51,13 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <Link href="/journal/all-habits">
+              <SidebarMenuButton className="pl-4 cursor-pointer "><ListCollapseIcon className="mr-2" />All Habits</SidebarMenuButton>
+            </Link>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarContent>
     </Sidebar>
   );
